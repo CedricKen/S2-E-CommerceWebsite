@@ -28,7 +28,7 @@ pipeline {
                             ),
 
                             string(name: 'WARNTIME',
-                             defaultValue: '1',
+                             defaultValue: '2',
                             description: '''Warning time (in minutes) before starting upgrade'''),
 
                              
