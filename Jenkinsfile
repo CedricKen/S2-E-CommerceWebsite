@@ -28,7 +28,7 @@ pipeline {
                             ),
 
                             string(name: 'WARNTIME',
-                             defaultValue: '2',
+                             defaultValue: '1',
                             description: '''Warning time (in minutes) before starting upgrade'''),
 
                              
@@ -81,7 +81,7 @@ stage('build ') {
 
             steps {
                sh '''
-           docker build -t devopseasylearning2021/eric:$ImageTAG .
+           docker build -t devopseasylearning2021/cedric_0314:$ImageTAG .
                '''
             }
         }
@@ -104,7 +104,7 @@ stage('build ') {
      stage('Docker push ') {
             steps {
                sh '''
-              docker push devopseasylearning2021/eric:$ImageTAG 
+              docker push devopseasylearning2021/cedric_0314:$ImageTAG 
                 '''
             }
         }
@@ -116,7 +116,7 @@ stage('build ') {
             steps {
                sh '''
                docker rm -f $(docker ps -aq) || true
-               docker run -d --name deploy -p 8787:80 devopseasylearning2021/eric:$ImageTAG 
+               docker run -d --name deploy -p 8787:80 devopseasylearning2021/cedric_0314:$ImageTAG 
                curl ifconfig.co 
                 '''
             }
